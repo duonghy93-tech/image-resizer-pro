@@ -55,11 +55,17 @@
                     </div>
                     <div class="modal-body">
                         <div class="input-group">
-                            <label for="apiKey">Fal.ai API Key</label>
+                            <label for="leonardoKeyInput">Leonardo.ai API Key</label>
+                            <input type="password" id="leonardoKeyInput" placeholder="Nhập Leonardo Key...">
+                            <p class="hint">Lấy key tại <a href="https://app.leonardo.ai/api-access"
+                                    target="_blank">leonardo.ai/api-access</a></p>
+                        </div>
+                        <div class="input-group" style="margin-top: 1rem;">
+                            <label for="apiKeyInput">Fal.ai API Key</label>
                             <input type="password" id="apiKeyInput"
                                 placeholder="Nhập Fal.ai Key (bắt đầu bằng fal_...)">
-                            <p class="hint">Key được lưu trên trình duyệt của bạn. Đăng ký tại <a href="https://fal.ai"
-                                    target="_blank">fal.ai</a></p>
+                            <p class="hint">Lấy key tại <a href="https://fal.ai/dashboard/keys"
+                                    target="_blank">fal.ai/dashboard/keys</a></p>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -170,15 +176,26 @@
                                 <div class="mode-badge free">Miễn phí</div>
                             </div>
                         </label>
-                        <label class="mode-option" data-mode="ai">
-                            <input type="radio" name="upscaleMode" value="ai">
+                        <label class="mode-option" data-mode="leonardo">
+                            <input type="radio" name="upscaleMode" value="leonardo">
+                            <div class="mode-card">
+                                <div class="mode-icon">🎨</div>
+                                <div class="mode-info">
+                                    <span class="mode-title">Leonardo.ai</span>
+                                    <span class="mode-desc">Universal Upscaler, chất lượng cao</span>
+                                </div>
+                                <div class="mode-badge leonardo">Premium</div>
+                            </div>
+                        </label>
+                        <label class="mode-option" data-mode="fal">
+                            <input type="radio" name="upscaleMode" value="fal">
                             <div class="mode-card">
                                 <div class="mode-icon">🚀</div>
                                 <div class="mode-info">
-                                    <span class="mode-title">AI (Fal.ai)</span>
-                                    <span class="mode-desc">Upscale x2 bằng Real-ESRGAN, ~200đ/ảnh</span>
+                                    <span class="mode-title">Fal.ai</span>
+                                    <span class="mode-desc">Real-ESRGAN, ~200đ/ảnh</span>
                                 </div>
-                                <div class="mode-badge ai">Cao cấp</div>
+                                <div class="mode-badge ai">API</div>
                             </div>
                         </label>
                     </div>
@@ -198,9 +215,9 @@
                 <div class="quality-section">
                     <label for="quality" class="quality-label">
                         Chất lượng đầu ra
-                        <span class="quality-value" id="qualityValue">95%</span>
+                        <span class="quality-value" id="qualityValue">100%</span>
                     </label>
-                    <input type="range" id="quality" min="70" max="100" value="95" class="quality-slider">
+                    <input type="range" id="quality" min="70" max="100" value="100" class="quality-slider">
                     <div class="quality-marks">
                         <span>Tốt</span>
                         <span>Rất tốt</span>

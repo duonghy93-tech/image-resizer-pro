@@ -4,7 +4,7 @@ const state = {
     selectedPreset: '9:16',
     customWidth: 1920,
     customHeight: 1080,
-    quality: 95,
+    quality: 100,
     upscaleMode: 'free', // 'free', 'leonardo', or 'fal'
     leonardoKey: localStorage.getItem('leonardo_api_key') || '',
     falKey: localStorage.getItem('fal_api_key') || ''
@@ -415,19 +415,17 @@ function downloadFile(blob, fileName) {
 
 function resetApp() {
     state.selectedFiles = [];
-    state.selectedPreset = '9:16';
-    state.quality = 95;
+    // Keep the same preset, don't reset
+    state.quality = 100;
 
     elements.imageInput.value = '';
     updateFileCount();
     updateProcessButton();
 
-    elements.presetBtns.forEach(btn => btn.classList.remove('active'));
-    elements.presetBtns[0].classList.add('active');
-    elements.customDimensions.style.display = 'none';
+    // Don't reset preset selection
 
-    elements.qualitySlider.value = 95;
-    elements.qualityValue.textContent = '95%';
+    elements.qualitySlider.value = 100;
+    elements.qualityValue.textContent = '100%';
 
     elements.processBtn.style.display = 'flex';
     elements.progressContainer.style.display = 'none';
@@ -435,6 +433,9 @@ function resetApp() {
 
     elements.progressFill.style.width = '0%';
     elements.progressPercentage.textContent = '0%';
+
+    // Directly open file picker
+    setTimeout(() => elements.imageInput.click(), 100);
 }
 
 // ===== Initialize =====
